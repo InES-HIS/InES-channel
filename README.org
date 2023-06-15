@@ -1,0 +1,7 @@
+#+title: InES Channel
+
+* What is this about?
+A guix channel to ease InES developments.
+
+** Why a separate channel?
+Although upstreaming FLOSS packages is the right way to go, getting patches merged may be a somewhat cumbersome process.  Hence we provide our own channel here to get things faster up-and-running.
