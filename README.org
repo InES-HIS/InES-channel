@@ -5,3 +5,15 @@ A guix channel to ease InES developments.
 
 ** Why a separate channel?
 Although upstreaming FLOSS packages is the right way to go, getting patches merged may be a somewhat cumbersome process.  Hence we provide our own channel here to get things faster up-and-running.
+
+* How To
+** Use this channel
+Add the base information for this channel to your personal `~/.config/guix/channels.scm` file.  It should look something like this:
+
+#+begin_src scheme
+  (cons* (channel
+          (name 'ines)
+          (url "https://github.com/InES-HIS/InES-channel")
+          (branch "main"))
+         %default-channels)
+#+end_src
