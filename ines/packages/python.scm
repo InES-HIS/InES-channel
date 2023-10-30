@@ -2,7 +2,9 @@
  #:use-module ((guix licenses) #:prefix license:)
  #:use-module (guix packages)
  #:use-module (guix download)
- #:use-module (guix build-system python))
+ #:use-module (guix git-download)
+ #:use-module (guix build-system python)
+ #:use-module (gnu packages python-xyz))
 
 (define-public python-icmplib
   (package
@@ -25,3 +27,16 @@
 ICMP is typically used for diagnostic or control purposes - well known from
 utilities such as ping(1).")
     (license license:lgpl3)))
+
+(define-public python-scapy-secure-handshake
+  (package
+   (inherit python-scapy)
+   (name "python-scapy-secure-handshake")
+   (source
+    (origin
+     (method git-fetch)
+     (uri (git-reference
+           (url "https://github.com/InES-HIS/python-scapy-pnio-sec")
+           (commit "PN-secure-handshake")))
+     (sha256
+      (base32 "1i27y9bpw40kw20lcxf44fn9mgkih79923rhn26g2q8hypw3a7fd"))))))
