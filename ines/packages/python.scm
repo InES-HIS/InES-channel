@@ -40,3 +40,23 @@ utilities such as ping(1).")
            (commit "PN-secure-handshake")))
      (sha256
       (base32 "1i27y9bpw40kw20lcxf44fn9mgkih79923rhn26g2q8hypw3a7fd"))))))
+
+(define-public python-smbus2
+  (package
+    (name "python-smbus2")
+    (version "0.4.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "smbus2" version))
+       (sha256
+        (base32
+         "0fl0dazyg78yqz4lljd252kva3l8ip4lw95jlyvkqdhsis52iwin"))))
+    (build-system python-build-system)
+    (home-page "https://github.com/kplindegaard/smbus2")
+    (synopsis "Drop-in replacement for smbus-cffi/smbus-python in pure Python")
+    (description "This package provides a Python library to access
+@acronym{I2C, Inter-Integrated Circuit} and @acronym{SMBus, System +
+Management Bus} devices on Linux.  It is functionally equivalent to
+python-smbus and provides the same interface and syntax.")
+    (license license:expat)))
