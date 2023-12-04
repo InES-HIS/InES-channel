@@ -9,9 +9,7 @@
 (define-public mbedtls-apache3
   (package
     (name "mbedtls-apache3")
-    ;; XXX Check whether ‘-Wformat-signedness’ still breaks mbedtls-for-hiawatha
-    ;; when updating.
-    (version "3.2.1")
+    (version "3.5.1")
     (source
      (origin
        (method git-fetch)
@@ -20,7 +18,7 @@
              (commit (string-append "mbedtls-" version))))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "1dvj1m2i5lkaf8bcmslap8d82z2pi7ypgr8n7lv0rqjyy4vgmkgq"))))
+        (base32 "1b1xq1fpsw1ywl6xm6577biwnhyyr4gk2wkfd1sil4yjcrq0f6qz"))))
     (build-system cmake-build-system)
     (arguments
      `(#:configure-flags
