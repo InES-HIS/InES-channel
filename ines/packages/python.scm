@@ -1,9 +1,10 @@
 (define-module (ines packages python)
  #:use-module ((guix licenses) #:prefix license:)
- #:use-module (guix packages)
  #:use-module (guix download)
  #:use-module (guix git-download)
+ #:use-module (guix packages)
  #:use-module (guix build-system python)
+ #:use-module (guix build-system pyproject)
  #:use-module (gnu packages python-xyz))
 
 (define-public python-icmplib
@@ -59,4 +60,25 @@ utilities such as ping(1).")
 @acronym{I2C, Inter-Integrated Circuit} and @acronym{SMBus, System +
 Management Bus} devices on Linux.  It is functionally equivalent to
 python-smbus and provides the same interface and syntax.")
+    (license license:expat)))
+
+(define-public python-keyboard
+  (package
+    (name "python-keyboard")
+    (version "0.13.5")
+    (source
+     (origin
+      (method git-fetch)
+      (uri (git-reference
+            (url "https://github.com/boppreh/keyboard")
+            (commit (string-append "v" version))))
+       (sha256
+        (base32
+         "0lzn15xxh35ixw77d3hg3lmlxry69cdgfrvj2g0srwbnza29d0ak"))))
+    (arguments '(#:tests? #f ;; no test target
+                 ))
+    (build-system pyproject-build-system)
+    (home-page "https://github.com/boppreh/keyboard")
+    (synopsis "KEYBOARD")
+    (description "TODO")
     (license license:expat)))
